@@ -1,0 +1,59 @@
+@use "reset" as *;
+@use "variables" as *;
+@use "font" as *;
+@use "../../components/page/Start/Start" as *;
+@use "../../components/page/Games/Game/Game" as *;
+@use "../../components/page/Final/Final" as *;
+@use "../../components/buttons/Button/Button" as *;
+@use "../../components/sidebar/Item/Item" as *;
+@use "../../components/sidebar/SidebarWrapper/SidebarWrapper" as *;
+@use "../../components/page/Games/GameNav/GameNav" as *;
+
+body {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(
+      to right bottom,
+      white 0%,
+      white 50%,
+      $yellow_3 50%,
+      $yellow_3 100%
+    )
+    no-repeat;
+  transition: all 0.3s ease;
+}
+
+.page-wrapper {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.mobile-label-nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 15;
+}
+
+@media (min-width: $desktop) {
+  body {
+    background: linear-gradient(
+      to right bottom,
+      white 0%,
+      white 50%,
+      $blue_5 50%,
+      $blue_5 100%
+    );
+  }
+
+  .mobile-label-nav {
+    display: none;
+  }
+}

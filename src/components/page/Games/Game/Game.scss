@@ -1,0 +1,74 @@
+@use "../../../../assets/styles/variables" as *;
+
+.main-page {
+  background: $grey_2;
+
+  .page-wrapper {
+    justify-content: space-between;
+    position: relative;
+    overflow-x: hidden;
+
+    #check-mobile-nav {
+      display: none;
+    }
+
+    label .btn,
+    label .cancel {
+      position: absolute;
+      cursor: pointer;
+      width: 17px;
+      height: 14px;
+    }
+    label .btn {
+      background: url("../../../../assets/images/burger.svg") no-repeat;
+      right: 20px;
+      top: 20px;
+      transition: all 0.5s;
+    }
+    label .cancel {
+      background: url("../../../../assets/images/close_btn.svg") no-repeat;
+      z-index: 100;
+      top: -100px;
+      right: 20px;
+      transition: all 0.5s ease;
+    }
+    #check-mobile-nav:checked ~ .sidebar {
+      left: 0;
+    }
+    #check-mobile-nav:checked ~ label .btn {
+      top: -250px;
+      opacity: 0;
+      pointer-events: none;
+    }
+    #check-mobile-nav:checked ~ label .cancel {
+      top: 20px;
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .main-page {
+    .page-wrapper {
+      label .cancel {
+        top: -195px;
+        left: auto;
+      }
+
+      #check-mobile-nav:checked ~ .sidebar {
+        right: 0;
+        left: auto;
+      }
+
+      #check-mobile-nav:checked ~ label .cancel {
+        top: 20px;
+        right: 20px;
+        left: auto;
+      }
+
+      #check-mobile-nav:checked ~ .game-content {
+        margin-right: 400px;
+        padding-left: 16px;
+      }
+    }
+  }
+}

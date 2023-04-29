@@ -1,0 +1,46 @@
+@use "../../../assets/styles/variables" as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: $grey_2;
+  position: fixed;
+  top: 0;
+  left: 150%;
+  transition: all 0.5s ease;
+  z-index: 10;
+  padding-top: 50px;
+
+  ul {
+    overflow: scroll;
+    padding-bottom: 16px;
+  }
+}
+
+@media (min-width: $tablet) {
+  .sidebar {
+    max-width: 376px;
+    right: -400px;
+    left: auto;
+    background: white;
+
+    ul {
+      padding-bottom: 16px;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .sidebar {
+    display: flex;
+    position: relative;
+    padding-top: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+}

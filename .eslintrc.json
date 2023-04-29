@@ -1,0 +1,62 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:react/jsx-runtime",
+    "prettier"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["tsconfig.json"],
+    "ecmaVersion": "es6",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "prettier", "import"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "./"],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["src"],
+        "alias": {
+          "@reduxjs/toolkit": "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js"
+        }
+      },
+      "typescript": true,
+      "react-router-dom": true
+    }
+  },
+  "rules": {
+    "react/jsx-filename-extension": [
+      0,
+      { "extensions": [".js", ".tsx", ".jsx"] }
+    ],
+    "import/extensions": "off",
+    "react/jsx-props-no-spreading": ["warn"],
+    "jsx-a11y/label-has-associated-control": [
+      2,
+      {
+        "labelComponents": [],
+        "labelAttributes": [],
+        "controlComponents": [],
+        "assert": "htmlFor",
+        "depth": 25
+      }
+    ]
+  }
+}

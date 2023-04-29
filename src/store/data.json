@@ -1,0 +1,332 @@
+{
+  "questions": [
+    {
+      "id": 0,
+      "title": "How much is 1+1",
+      "value": 500,
+      "answers": [
+        {
+          "id": 0,
+          "title": "6",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "9",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "2",
+          "isTrue": true
+        },
+        {
+          "id": 3,
+          "title": "3",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "title": "How much is 1+2",
+      "value": 1000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "0",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "2",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "4",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "3",
+          "isTrue": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "How much is 2+2",
+      "value": 2000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "0",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "2",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "4",
+          "isTrue": true
+        },
+        {
+          "id": 3,
+          "title": "3",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "How much is 3+2",
+      "value": 4000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "2",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "3",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "4",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "5",
+          "isTrue": true
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "How much is 3+3",
+      "value": 8000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "0",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "6",
+          "isTrue": true
+        },
+        {
+          "id": 2,
+          "title": "4",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "3",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "How much is 4+3",
+      "value": 16000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "7",
+          "isTrue": true
+        },
+        {
+          "id": 1,
+          "title": "6",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "4",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "9",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "How much is 4+4",
+      "value": 32000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "0",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "6",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "8",
+          "isTrue": true
+        },
+        {
+          "id": 3,
+          "title": "3",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "title": "How much is 4+5",
+      "value": 64000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "11",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "6",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "9",
+          "isTrue": true
+        },
+        {
+          "id": 3,
+          "title": "3",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "title": "How much is 5+5",
+      "value": 125000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "10",
+          "isTrue": true
+        },
+        {
+          "id": 1,
+          "title": "6",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "9",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "7",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "title": "How much is 6+6",
+      "value": 250000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "10",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "12",
+          "isTrue": true
+        },
+        {
+          "id": 2,
+          "title": "19",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "7",
+          "isTrue": false
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "title": "How much is 7+6",
+      "value": 500000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "6",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "12",
+          "isTrue": false
+        },
+        {
+          "id": 2,
+          "title": "19",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "13",
+          "isTrue": true
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "title": "How much is 7+7",
+      "value": 1000000,
+      "answers": [
+        {
+          "id": 0,
+          "title": "6",
+          "isTrue": false
+        },
+        {
+          "id": 1,
+          "title": "14",
+          "isTrue": true
+        },
+        {
+          "id": 2,
+          "title": "19",
+          "isTrue": false
+        },
+        {
+          "id": 3,
+          "title": "13",
+          "isTrue": false
+        }
+      ]
+    }
+  ],
+  "currency": "$",
+  "currentStep": -1,
+  "startStep": 0,
+  "variantButtonLabels": ["A", "B", "C", "D"]
+}

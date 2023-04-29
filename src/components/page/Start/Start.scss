@@ -1,0 +1,53 @@
+@use "../../../assets/styles/variables" as *;
+
+.content-wrapper {
+  padding: 20px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+
+  .content {
+    width: 100%;
+  }
+}
+
+.hand-logo {
+  width: 100%;
+  max-width: 288px;
+  margin-bottom: 24px;
+  height: auto;
+}
+
+@media (min-width: $tablet) {
+  .hand-logo {
+    max-width: 624px;
+    margin: 0;
+  }
+
+  .content-wrapper {
+    .content {
+      width: auto;
+      padding-top: 48px;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .hand-logo {
+    margin: 0 32px 0 0;
+  }
+
+  .content-wrapper {
+    text-align: left;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: $desktop-xl) {
+  .content-wrapper {
+    padding: 0 80px;
+  }
+}

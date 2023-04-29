@@ -1,0 +1,249 @@
+@use "../../../../assets/styles/variables" as *;
+
+.main-page {
+  .game-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px 0 0;
+    transition: all 0.5s;
+    overflow-y: scroll;
+
+    h1 {
+      color: $black;
+      font-size: 18px;
+      width: 100%;
+      align-self: flex-start;
+      margin: 40px auto 20px;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .action-block {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: flex-end;
+      align-self: flex-end;
+      padding-bottom: 24px;
+      gap: 8px 0;
+
+      .answer-button {
+        position: relative;
+        border: none;
+        display: block;
+        background: transparent;
+        width: 100%;
+        max-width: 272px;
+        height: 56px;
+        line-height: 56px;
+        text-align: left;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: $black;
+        margin: 0 auto;
+        z-index: 2;
+
+        span {
+          display: inline-block;
+          margin: 0 8px 0 20px;
+          color: $blue_4;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          background: white;
+          width: 100%;
+          left: 0;
+          height: 28px;
+          border: 1px solid $grey;
+          z-index: -1;
+        }
+
+        &:before {
+          transform: perspective(30px) rotateX(7deg);
+          border-radius: 4px 4px 0 0;
+          border-bottom: none;
+        }
+
+        &:after {
+          top: 30px;
+          transform: perspective(30px) rotateX(-7deg);
+          border-radius: 0 0 4px 4px;
+          border-top: none;
+        }
+
+        &:not(:disabled) {
+          &:hover {
+            cursor: pointer;
+
+            &:before,
+            &:after {
+              border-color: $blue_3;
+            }
+          }
+        }
+
+        &:disabled {
+          &:hover {
+            cursor: default;
+          }
+        }
+      }
+    }
+
+    .answer-item {
+      position: relative;
+      width: 100%;
+      padding: 0 30px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        height: 1px;
+        background: $grey;
+        width: 100%;
+        z-index: 1;
+      }
+
+      &:not(.disabled) {
+        &:hover {
+          cursor: pointer;
+
+          &:after {
+            background-color: $blue_3;
+          }
+        }
+      }
+
+      &.selected {
+        &:after {
+          background-color: $yellow_4 !important;
+        }
+
+        .answer-button {
+          &:before,
+          &:after {
+            border-color: $yellow_4 !important;
+            background: $yellow_3 !important;
+          }
+        }
+      }
+
+      &.error {
+        &:after {
+          background-color: $red_2;
+        }
+
+        .answer-button {
+          &:before,
+          &:after {
+            border-color: $red_2;
+            background: $red;
+          }
+        }
+      }
+
+      &.correct {
+        &:after {
+          background-color: $green_2;
+        }
+
+        .answer-button {
+          &:before,
+          &:after {
+            border-color: $green_2;
+            background: $green;
+          }
+        }
+      }
+
+      &.disabled {
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .main-page {
+    .game-content {
+      padding: 60px 0 0;
+
+      h1 {
+        font-size: 32px;
+        margin: 100px auto 20px;
+      }
+
+      .action-block {
+        .answer-button {
+          font-size: 20px;
+          height: 72px;
+          line-height: 68px;
+          max-width: 363px;
+
+          &:after,
+          &:before {
+            height: 34px;
+          }
+
+          &:after {
+            top: 37px;
+          }
+        }
+      }
+
+      .answer-item {
+        padding: 0 15px;
+
+        &:after {
+          top: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .main-page {
+    .game-content {
+      padding: 132px 20px;
+
+      h1 {
+        font-size: 32px;
+        padding: 0;
+        text-align: left;
+        margin: 0 0 20px;
+      }
+
+      .answer-item {
+        max-width: 422px;
+        width: 50%;
+      }
+
+      .action-block {
+        gap: 30px 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop-xl) {
+  .main-page {
+    .game-content {
+      padding: 132px 80px 112px;
+    }
+  }
+}

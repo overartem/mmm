@@ -1,0 +1,117 @@
+@use "../../../assets/styles/variables" as *;
+
+.sidebar-item {
+  position: relative;
+  margin: 4px 0;
+
+  &:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 1px;
+    background: $grey;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .sidebar-item-inner {
+    position: relative;
+    display: block;
+    background: $grey_2;
+    width: 222px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: $black;
+    margin: 0 auto;
+    z-index: 2;
+
+    span {
+      background: white;
+      width: 90%;
+      display: inline-block;
+      line-height: 24px;
+    }
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      background: white;
+      width: 100%;
+      left: 0;
+      height: 16px;
+      border: 1px solid $grey;
+      z-index: -1;
+    }
+
+    &:before {
+      transform: perspective(15px) rotateX(7deg);
+      border-radius: 4px 4px 0 0;
+      border-bottom: none;
+    }
+
+    &:after {
+      top: 16px;
+      transform: perspective(15px) rotateX(-7deg);
+      border-radius: 0 0 4px 4px;
+      border-top: none;
+    }
+  }
+
+  &.active {
+    &:after {
+      background: $blue_4;
+    }
+
+    .sidebar-item-inner {
+      &:after,
+      &:before {
+        border-color: $blue_4;
+      }
+
+      &:hover {
+        color: $red;
+
+        span {
+          background: $blue_4;
+        }
+
+        &:after,
+        &:before {
+          background: $blue_4;
+        }
+      }
+    }
+  }
+
+  &.done {
+    .sidebar-item-inner {
+      color: $grey;
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .sidebar-item {
+    .sidebar-item-inner {
+      background: white;
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+
+      &:before,
+      &:after {
+        height: 20px;
+      }
+
+      &:after {
+        top: 21px;
+      }
+    }
+  }
+}

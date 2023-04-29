@@ -1,0 +1,44 @@
+@use "../../../assets/styles/variables" as *;
+
+.start-game {
+  display: inline-block;
+  background: $blue_3;
+  border: 1px solid $blue_3;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+  width: 100%;
+  max-width: 288px;
+  line-height: 44px;
+  margin-top: 102px;
+  text-decoration: none;
+  text-align: center;
+
+  &:hover {
+    cursor: pointer;
+    background: $blue_4;
+    border-color: $blue_4;
+  }
+
+  &:active,
+  &.active {
+    background: $blue;
+    border-color: $blue;
+  }
+
+  &:disabled {
+    background: $blue_3;
+    border-color: $blue_3;
+    opacity: 0.4;
+  }
+}
+
+@media (min-width: $tablet) {
+  .start-game {
+    font-size: 20px;
+    max-width: 296px;
+    margin-top: 64px;
+    line-height: 60px;
+  }
+}
