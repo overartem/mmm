@@ -4,7 +4,6 @@ export interface IBase {
   currentStep: number;
   startStep: number;
   variantButtonLabels: string[];
-  rest?: any;
 }
 
 export interface IQuestion {
