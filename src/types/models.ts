@@ -24,7 +24,7 @@ export interface IAnswerBtnProps {
   title: string;
   btnStatus: string;
   disable: boolean;
-  handleValidate: (e: React.MouseEvent<HTMLButtonElement>, id: number) => void;
+  handleValidate: (id: number) => void;
   label: string;
 }
 

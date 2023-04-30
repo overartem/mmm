@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { currentStepAction } from "../../../../app/reducers";
@@ -20,7 +20,10 @@ function GameNav() {
     id: 0,
     type: "",
   });
-  const currentAnswers = questions[currentQuestionNumber].answers;
+  const memoizedAnswers = useMemo(
+    () => questions[currentQuestionNumber].answers,
+    [questions, currentQuestionNumber]
+  );
   const quantityQuestions = questions.length - 1;
 
   useEffect(() => {
@@ -61,7 +64,7 @@ function GameNav() {
 
   const createTimeout = (id: number, time = 2000) => {
     const timerId = setTimeout(() => {
-      if (currentAnswers[id].isTrue) {
+      if (memoizedAnswers[id].isTrue) {
         setBtnStatus({ id, type: "correct" });
         setDisable(true);
       } else {
@@ -83,9 +86,7 @@ function GameNav() {
     }
   }, [btnStatus]);
 
-  const handleValidate = (e:React.MouseEvent<HTMLButtonElement>, id: number) => {
-    const button = e.currentTarget;
-    button.blur();
+  const handleValidate = (id: number) => {
     setBtnStatus({ id, type: "selected" });
   };
 
@@ -93,7 +94,7 @@ function GameNav() {
     <div className="game-content">
       <h1>{questions[currentQuestionNumber].title}</h1>
       <div className="action-block">
-        {currentAnswers.map((answer, index) => (
+        {memoizedAnswers.map((answer, index) => (
           <div
             key={answer.id}
             className={`answer-item ${

@@ -13,7 +13,7 @@ function AnswerBtn({
       disabled={disable}
       type="button"
       className={`answer-button ${btnStatus}`}
-      onClick={(e) => handleValidate(e, id)}
+      onClick={() => handleValidate(id)}
     >
       <span>{label}</span>
       {title}
