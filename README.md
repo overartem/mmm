@@ -58,3 +58,5 @@ In the project directory, you can run:
 ### `npm start` :tada:
 or
 ### `npm run build`
+
+![Іллюстрація до проєкту](https://i.imgur.com/4xBAO9A.png)
