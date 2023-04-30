@@ -1,28 +1,31 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { currentStepAction } from "../../../../app/reducers";
+import GameNavReducer from "./GameNavReducer";
 import AnswerBtn from "../../../buttons/AnswerBtn/AnswerBtn";
 import useUpdateEffect from "../../../../hooks/useUpdateEffect";
-import { BtnStatus, IBase } from "../../../../types/models";
+import { IBase } from "../../../../types/models";
 
 function GameNav() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { questions, variantButtonLabels, startStep, currentStep } =
     useSelector((state: IBase) => state);
-  const [currentQuestionNumber, setCurrentQuestionNumber] =
-    useState<number>(startStep);
-  const [disable, setDisable] = useState<boolean>(false);
-  const [isNext, setIsNext] = useState<boolean>(false);
-  const [timeoutId, setTimeoutId] = useState<number | null>(null);
-  const [btnStatus, setBtnStatus] = useState<BtnStatus>({
-    id: 0,
-    type: "",
+  const [gameState, dispatchGameState] = useReducer(GameNavReducer, {
+    currentQuestionNumber: startStep,
+    disable: false,
+    isNext: false,
+    timeoutId: null,
+    btnStatus: {
+      id: 0,
+      type: "",
+    },
   });
+
   const memoizedAnswers = useMemo(
-    () => questions[currentQuestionNumber].answers,
-    [questions, currentQuestionNumber]
+    () => questions[gameState.currentQuestionNumber].answers,
+    [questions, gameState.currentQuestionNumber]
   );
   const quantityQuestions = questions.length - 1;
 
@@ -34,22 +37,25 @@ function GameNav() {
   }, []);
 
   useUpdateEffect(() => {
-    setBtnStatus({ id: 0, type: "" });
-    setDisable(false);
-  }, [currentQuestionNumber]);
+    dispatchGameState({ type: "setBtnStatus", payload: { id: 0, type: "" } });
+    dispatchGameState({ type: "setDisable", payload: false });
+  }, [gameState.currentQuestionNumber]);
 
   useUpdateEffect(() => {
     let timerId: NodeJS.Timeout;
-    if (btnStatus.type === "correct") {
-      dispatch(currentStepAction(currentQuestionNumber));
-      if (quantityQuestions === currentQuestionNumber) {
+    if (gameState.btnStatus.type === "correct") {
+      dispatch(currentStepAction(gameState.currentQuestionNumber));
+      if (quantityQuestions === gameState.currentQuestionNumber) {
         navigate("/final", { state: { from: "game" } });
       } else {
         timerId = setTimeout(() => {
-          setCurrentQuestionNumber((prevQuestion) => prevQuestion + 1);
+          dispatchGameState({
+            type: "setCurrentQuestionNumber",
+            payload: (prevQuestion: number) => prevQuestion + 1,
+          });
         }, 300);
       }
-    } else if (btnStatus.type === "error") {
+    } else if (gameState.btnStatus.type === "error") {
       timerId = setTimeout(() => {
         navigate("/final", { state: { from: "game" } });
       }, 300);
@@ -61,52 +67,63 @@ function GameNav() {
     return () => {
       clearTimeout(timerId);
     };
-  }, [isNext]);
+  }, [gameState.isNext]);
 
   const createTimeout = (id: number, time = 2000) => {
     const timerId = setTimeout(() => {
       if (memoizedAnswers[id].isTrue) {
-        setBtnStatus({ id, type: "correct" });
-        setDisable(true);
+        dispatchGameState({
+          type: "setBtnStatus",
+          payload: { id, type: "correct" },
+        });
       } else {
-        setBtnStatus({ id, type: "error" });
-        setDisable(true);
+        dispatchGameState({
+          type: "setBtnStatus",
+          payload: { id, type: "error" },
+        });
       }
-      setIsNext(!isNext);
+      dispatchGameState({ type: "setDisable", payload: true });
+      dispatchGameState({ type: "setIsNext", payload: !gameState.isNext });
     }, time);
     return Number(timerId);
   };
 
   useUpdateEffect((): void => {
-    if (btnStatus.type === "selected") {
-      setTimeoutId(createTimeout(btnStatus.id, 2000));
+    if (gameState.btnStatus.type === "selected") {
+      dispatchGameState({
+        type: "setTimeoutId",
+        payload: createTimeout(gameState.btnStatus.id, 2000),
+      });
     }
 
-    if (timeoutId !== null) {
-      clearTimeout(timeoutId);
+    if (gameState.timeoutId !== null) {
+      clearTimeout(gameState.timeoutId);
     }
-  }, [btnStatus]);
+  }, [gameState.btnStatus]);
 
   const handleValidate = (id: number) => {
-    setBtnStatus({ id, type: "selected" });
+    dispatchGameState({
+      type: "setBtnStatus",
+      payload: { id, type: "selected" },
+    });
   };
 
   return (
     <div className="game-content">
-      <h1>{questions[currentQuestionNumber].title}</h1>
+      <h1>{questions[gameState.currentQuestionNumber].title}</h1>
       <div className="action-block">
         {memoizedAnswers.map((answer, index) => (
           <div
             key={answer.id}
             className={`answer-item ${
-              btnStatus.id === index ? btnStatus.type : ""
-            }${disable ? " disabled" : ""}`}
+              gameState.btnStatus.id === index ? gameState.btnStatus.type : ""
+            }${gameState.disable ? " disabled" : ""}`}
           >
             <AnswerBtn
               id={answer.id}
               title={answer.title}
-              btnStatus={btnStatus.type}
-              disable={disable}
+              btnStatus={gameState.btnStatus.type}
+              disable={gameState.disable}
               handleValidate={handleValidate}
               label={variantButtonLabels[index]}
             />

@@ -28,7 +28,23 @@ export interface IAnswerBtnProps {
   label: string;
 }
 
-export type BtnStatus = {
-  id: number;
-  type: string;
-};
+export interface IStateGame {
+  currentQuestionNumber: number;
+  disable: boolean;
+  isNext: boolean;
+  timeoutId: number | null;
+  btnStatus: {
+    id: number;
+    type: string;
+  };
+}
+
+export type ActionGame =
+  | {
+      type: "setCurrentQuestionNumber";
+      payload: number | ((prevQuestion: number) => number);
+    }
+  | { type: "setDisable"; payload: boolean }
+  | { type: "setIsNext"; payload: boolean }
+  | { type: "setTimeoutId"; payload: number | null }
+  | { type: "setBtnStatus"; payload: { id: number; type: string } };
