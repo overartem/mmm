@@ -1,17 +1,20 @@
 import { Route, Routes } from "react-router-dom";
-import Start from "../components/page/Start/Start";
-import Final from "../components/page/Final/Final";
-import NotFound from "../components/page/404/NotFound";
-import Game from "../components/page/Games/Game/Game";
+import { lazy, Suspense } from "react";
 
+const Start = lazy(() => import ("../components/page/Start/Start"));
+const Final = lazy(() => import ("../components/page/Final/Final"));
+const NotFound = lazy(() => import ("../components/page/404/NotFound"));
+const Game = lazy(() => import ("../components/page/Games/Game/Game"));
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Start />} />
-      <Route path="/game" element={<Game />} />
-      <Route path="/final" element={<Final />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+    <Suspense fallback={<h1>Loading..</h1>}>
+      <Routes>
+        <Route path="/" element={<Start />} />
+        <Route path="/game" element={<Game />} />
+        <Route path="/final" element={<Final />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
 
