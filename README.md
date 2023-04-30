@@ -66,3 +66,5 @@ or
 ![Іллюстрація до проєкту 3](https://i.imgur.com/UNw63Ji.png)
 ![Іллюстрація до проєкту 4](https://i.imgur.com/AAXciJr.png)
 ![Іллюстрація до проєкту 5](https://i.imgur.com/Vs2Ssx3.png)
+![Іллюстрація до проєкту 6](https://i.imgur.com/GeMVCqw.png)
+![Іллюстрація до проєкту 7](https://i.imgur.com/aCphH2D.png)
