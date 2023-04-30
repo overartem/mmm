@@ -44,10 +44,11 @@ function GameNav() {
       dispatch(currentStepAction(currentQuestionNumber));
       if (quantityQuestions === currentQuestionNumber) {
         navigate("/final", { state: { from: "game" } });
+      } else {
+        timerId = setTimeout(() => {
+          setCurrentQuestionNumber((prevQuestion) => prevQuestion + 1);
+        }, 300);
       }
-      timerId = setTimeout(() => {
-        setCurrentQuestionNumber((prevQuestion) => prevQuestion + 1);
-      }, 300);
     } else if (btnStatus.type === "error") {
       timerId = setTimeout(() => {
         navigate("/final", { state: { from: "game" } });
