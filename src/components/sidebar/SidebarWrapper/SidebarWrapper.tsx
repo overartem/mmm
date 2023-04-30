@@ -4,7 +4,7 @@ import { IBase } from "../../../types/models";
 
 function SidebarWrapper() {
   const { questions, currentStep } = useSelector((state: IBase) => state);
-  const priceData = questions.slice().sort((a, b) => b.id - a.id);
+  const priceData = [...questions].sort((a, b) => b.id - a.id);
   return (
     <div className="sidebar">
       <ul>
