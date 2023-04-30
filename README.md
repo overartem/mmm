@@ -61,9 +61,9 @@ or
 
 ## App Screenshots :eyes:
 
-![Іллюстрація до проєкту](https://i.imgur.com/4xBAO9A.png)
+![Іллюстрація до проєкту](https://i.imgur.com/UNw63Ji.png)
 ![Іллюстрація до проєкту 2](https://i.imgur.com/UNfTNnY.png)
-![Іллюстрація до проєкту 3](https://i.imgur.com/UNw63Ji.png)
+![Іллюстрація до проєкту3](https://i.imgur.com/4xBAO9A.png)
 ![Іллюстрація до проєкту 4](https://i.imgur.com/AAXciJr.png)
 ![Іллюстрація до проєкту 5](https://i.imgur.com/Vs2Ssx3.png)
 ![Іллюстрація до проєкту 6](https://i.imgur.com/GeMVCqw.png)
