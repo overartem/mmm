@@ -17,6 +17,11 @@
 
   .hand-logo {
     margin-bottom: 32px;
+    transition: transform 1s ease-in-out;
+
+    &.loser {
+      transform: rotate(181deg);
+    }
   }
 }
 
