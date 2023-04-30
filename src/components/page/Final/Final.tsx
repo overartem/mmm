@@ -24,7 +24,7 @@ function Final() {
       };
     }
     return undefined;
-  }, [currentStep]);
+  }, [currentStep, questions]);
   return (
     <div className="content-wrapper">
       <img src={hand} className={`hand-logo${rotate ? " loser" : ""}`} alt="Supper Game" />
